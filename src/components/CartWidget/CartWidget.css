@@ -1,0 +1,22 @@
+.cart-widget {
+    position: relative;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .qty-display {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: 18px;
+    height: 18px;
+    background-color: red;
+    font-size: 12px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    line-height: 17px;
+    transform: translate(65%, 15%);
+  }
+  
