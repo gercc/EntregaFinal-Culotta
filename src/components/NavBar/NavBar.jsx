@@ -10,8 +10,9 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import CartWidget from '../CartWidget/CartWidget';
+import {Link} from 'react-router-dom';
 
-const pages = ['Celulares', 'Electrodomésticos', 'Monitores', 'TV & AV'];
+const pages = ['Celulares', 'Electrodomesticos', 'Monitores', 'TV'];
 
 
 function ResponsiveAppBar() {
@@ -44,7 +45,10 @@ function ResponsiveAppBar() {
               textDecoration: 'none',
             }}
           >
+
             Tiki Store
+            
+            
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -78,7 +82,11 @@ function ResponsiveAppBar() {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Typography textAlign="center">
+                    <Link to={`/${page}`}>
+                    {page}
+                    </Link>
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -99,7 +107,9 @@ function ResponsiveAppBar() {
               textDecoration: 'none',
             }}
           >
+            
             Tiki Store
+            
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex'}, justifyContent: 'center' }}>
             {pages.map((page) => (
@@ -108,7 +118,9 @@ function ResponsiveAppBar() {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, mx: 3, color: 'white', display: 'block'}}
               >
-                {page}
+                <Link to={`/${page}`}>
+                    {page}
+                </Link>
               </Button>
             ))}
           </Box>
