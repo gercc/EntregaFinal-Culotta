@@ -1,26 +1,28 @@
 import React, { useEffect, useState } from 'react';
-import '../ItemListContainer/ItemListContainer.css';
-import axios from 'axios';
-import PokeUser from '../PokeUser/PokeUser'
+import ItemDetail from '../ItemDetail/ItemDetail'
+import productosData from '../productosData/productos.json';
+import './ItemListContainer.css'
 
-const ItemListContainer = () => {
 
-  const [users, setUsers] = useState([]);
+const ItemListContainer = ({ }) => {
+
+  const [productos, setProductos] = useState([]);
 
   useEffect(() => {
-    axios("https://jsonplaceholder.typicode.com/users/").then((res) => setUsers(res.data));
+    setProductos(productosData);
   }, []);
 
   return (
     <div>
-      <h1>Lista de Pokemons</h1>
-      {users.map((user) => {
-        return (
-          <div key={user.id}>
-            <PokeUser data={user} />
-          </div>
-        )
-      })}
+      <div className='container d-flex justify-content-center align-items-center'>
+        <div className='row'>
+          {productos.map((producto) => (
+            <div className='col-md-4 my-4' key={producto.name}>
+              <ItemDetail data={producto} image={producto.image} url={`/item/${producto.id}`} />
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }

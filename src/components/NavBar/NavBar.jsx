@@ -12,7 +12,7 @@ import MenuItem from '@mui/material/MenuItem';
 import CartWidget from '../CartWidget/CartWidget';
 import {Link} from 'react-router-dom';
 
-const pages = ['Celulares', 'Electrodomesticos', 'Monitores', 'TV'];
+const pages = ['Inicio', 'Celulares', 'Electrodomesticos', 'Monitores', 'TV'];
 
 
 function ResponsiveAppBar() {
@@ -38,6 +38,7 @@ function ResponsiveAppBar() {
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
+              fontSize: '2rem',
               fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.3rem',
@@ -83,7 +84,7 @@ function ResponsiveAppBar() {
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">
-                    <Link to={`/${page}`}>
+                    <Link to={`/${page}`} style={{ textDecoration: 'none', color: 'black'}}>
                     {page}
                     </Link>
                   </Typography>
@@ -118,7 +119,7 @@ function ResponsiveAppBar() {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, mx: 3, color: 'white', display: 'block'}}
               >
-                <Link to={`/${page}`}>
+                <Link to={`/${page}`} style={{ textDecoration: 'none', color: 'white', fontSize: '14px', letterSpacing: '.2rem' }}>
                     {page}
                 </Link>
               </Button>
