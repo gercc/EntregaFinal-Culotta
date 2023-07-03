@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -12,11 +12,20 @@ import MenuItem from '@mui/material/MenuItem';
 import CartWidget from '../CartWidget/CartWidget';
 import {Link} from 'react-router-dom';
 
-const pages = ['Inicio', 'Celulares', 'Electrodomesticos', 'Monitores', 'TV'];
+const pages = ['Inicio', 'Smartphones', 'Notebooks', 'Audio', 'Tv', 'Heladeras'];
+
+const pageRoutes = {
+  Inicio: '/',
+  Smartphones: '/product-category/smartphones',
+  Notebooks: '/product-category/notebooks',
+  Audio: '/product-category/audio',
+  Tv: '/product-category/smarttv',
+  Heladeras: '/product-category/heladeras'
+};
 
 
 function ResponsiveAppBar() {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [anchorElNav, setAnchorElNav] = useState(null);
   
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -84,7 +93,7 @@ function ResponsiveAppBar() {
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">
-                    <Link to={`/${page}`} style={{ textDecoration: 'none', color: 'black'}}>
+                    <Link to={pageRoutes[page]} style={{ textDecoration: 'none', color: 'black'}}>
                     {page}
                     </Link>
                   </Typography>
@@ -119,7 +128,7 @@ function ResponsiveAppBar() {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, mx: 3, color: 'white', display: 'block'}}
               >
-                <Link to={`/${page}`} style={{ textDecoration: 'none', color: 'white', fontSize: '14px', letterSpacing: '.2rem' }}>
+                <Link to={pageRoutes[page]} style={{ textDecoration: 'none', color: 'white', fontSize: '14px', letterSpacing: '.2rem' }}>
                     {page}
                 </Link>
               </Button>
