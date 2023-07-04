@@ -1,8 +1,9 @@
 import * as React from 'react';
+import ItemCount from '../ItemCount/ItemCount';
+
+const ItemDetail = ({ data, url, alt, onAdd, added }) => {
 
 
-
-const ItemDetail = ({ data, url, alt }) => {
   return (
     <div className='card text-center'>
       <img className='card-img-top img-fluid' src={data.img} alt={alt} />
@@ -14,6 +15,9 @@ const ItemDetail = ({ data, url, alt }) => {
         <a href={url}>
           <button className="btn btn-outline-secondary rounded-0">Ver Más</button>
         </a>
+        <div>
+          {added ? <Link to="/cart">Ir al carrito</Link> : <ItemCount inicial={1} onAdd={onAdd} />}
+        </div>
       </div>
     </div>
   );

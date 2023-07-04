@@ -1,20 +1,27 @@
 import React, { useContext, useState } from 'react';
 import { CartContext } from '../../components/CartContext/CartContext'
+import ItemDetail from '../ItemDetail/ItemDetail'
 import './ItemDetailContainer.css'
+//import ItemCount from '../ItemCount/ItemCount'
 
 const ItemDetailContainer = ({ data }) => {
   const { cart, setCart } = useContext(CartContext);
   const [cantidad, setCantidad] = useState(1);
+  const [added, setAdded] = useState(false)
 
 
-  const buyProducts = () => {
-    console.log('Cantidad seleccionada:', cantidad); 
-    const productoConCantidad = { ...data, cantidad };
+  const { agregarAlCarrito } = useContext(CartContext)
+  //const buyProducts = () => {
+    //console.log('Cantidad seleccionada:', cantidad); 
+    //const productoConCantidad = { ...data, cantidad };
     
-    setCart([...cart, productoConCantidad]);
-    console.log('Producto agregado al carrito:', productoConCantidad);
-  };
-
+    //setCart([...cart, productoConCantidad]);
+    //console.log('Producto agregado al carrito:', productoConCantidad);
+  //};
+  const onAdd = (count) => {
+    agregarAlCarrito(product, count)
+    setAdded(true)
+  }
 
   return (
     <div className='container d-flex justify-content-center align-items-center'>
@@ -46,7 +53,8 @@ const ItemDetailContainer = ({ data }) => {
               </select>
             </div>
             <div className="container text-center">
-              <button onClick={() => buyProducts()} className="btn btn-primary btnContacto1" type="button">Agregar al Carrito</button>
+              {/*<button onClick={() => buyProducts()} className="btn btn-primary btnContacto1" type="button">Agregar al Carrito</button>*/}
+              <ItemDetail onAdd={onAdd} product={product} added={added} />
             </div>
           </div>
         </div>
