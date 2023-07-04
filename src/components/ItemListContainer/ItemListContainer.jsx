@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import ItemDetail from '../ItemDetail/ItemDetail'
+import ItemList from '../ItemList/ItemList'
 import { CartContext } from '../CartContext/CartContext'
 import './ItemListContainer.css'
 
@@ -35,7 +35,7 @@ const ItemListContainer = () => {
         <div className='row'>
           {productos.map((producto) => (
             <div className='col-md-4 my-4' key={producto.id}>
-              <ItemDetail data={producto} url={`/item/${producto.id}`} />
+              <ItemList data={producto} url={`/item/${producto.id}`} />
             </div>
           ))}
         </div>

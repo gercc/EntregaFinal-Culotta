@@ -23,15 +23,15 @@ const CartContextProvider = ({ children }) => {
   }, []);
 
   //const agregarAlCarrito = (product, count) => {
-    //console.log(`agregaste ${product.product}, cantidad: ${count}`)
+  //console.log(`agregaste ${product.product}, cantidad: ${count}`)
   //}
 
   //const buyProducts = () => {
-    //console.log('Cantidad seleccionada:', cantidad); 
-    //const productoConCantidad = { ...data, cantidad };
-    
-    //setCart([...cart, productoConCantidad]);
-    //console.log('Producto agregado al carrito:', productoConCantidad);
+  //console.log('Cantidad seleccionada:', cantidad); 
+  //const productoConCantidad = { ...data, cantidad };
+
+  //setCart([...cart, productoConCantidad]);
+  //console.log('Producto agregado al carrito:', productoConCantidad);
   //};
 
   const agregarAlCarrito = (product, count) => {
@@ -39,7 +39,7 @@ const CartContextProvider = ({ children }) => {
       item: product,
       count
     }
-    setCart([...cart ,newObj])
+    setCart([...cart, newObj])
   }
 
 

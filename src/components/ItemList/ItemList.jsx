@@ -6,7 +6,7 @@ const ItemDetail = ({ data, url, alt, onAdd, added }) => {
 
   return (
     <div className='card text-center'>
-      <img className='card-img-top img-fluid' src={data?.img} alt={alt} />
+      <img className='card-img-top img-fluid' src={data.img} alt={alt} />
       <div className='card-body'>
         <h3 className='card-title'>{data && data.product}</h3>
         <p className='card-text text-secondary'>

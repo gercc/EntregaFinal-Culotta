@@ -12,11 +12,11 @@ const ItemDetailContainer = ({ data }) => {
 
   const { agregarAlCarrito } = useContext(CartContext)
   //const buyProducts = () => {
-    //console.log('Cantidad seleccionada:', cantidad); 
-    //const productoConCantidad = { ...data, cantidad };
-    
-    //setCart([...cart, productoConCantidad]);
-    //console.log('Producto agregado al carrito:', productoConCantidad);
+  //console.log('Cantidad seleccionada:', cantidad); 
+  //const productoConCantidad = { ...data, cantidad };
+
+  //setCart([...cart, productoConCantidad]);
+  //console.log('Producto agregado al carrito:', productoConCantidad);
   //};
   const onAdd = (count) => {
     agregarAlCarrito(product, count)
@@ -44,7 +44,7 @@ const ItemDetailContainer = ({ data }) => {
             <button className="btn btn-outline-secondary rounded-0 btn-lg mt-2">${data.price}</button>
             <div className="d-flex justify-content-center align-items-center my-5 ">
               <h5 className=''>Cantidad:</h5>
-              <select className="text-center px-2" aria-label="options"  onChange={(e) => setCantidad(parseInt(e.target.value))}>
+              <select className="text-center px-2" aria-label="options" onChange={(e) => setCantidad(parseInt(e.target.value))}>
                 <option selected>1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -54,7 +54,7 @@ const ItemDetailContainer = ({ data }) => {
             </div>
             <div className="container text-center">
               {/*<button onClick={() => buyProducts()} className="btn btn-primary btnContacto1" type="button">Agregar al Carrito</button>*/}
-              <ItemDetail onAdd={onAdd} product={product} added={added} />
+              <ItemDetail onAdd={onAdd} added={added} />
             </div>
           </div>
         </div>
